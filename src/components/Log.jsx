@@ -1,3 +1,12 @@
-export default function Log({ currPlayer }) {
-  return <ol id='log'></ol>;
+export default function Log({ turns }) {
+  return (
+    <ol id='log'>
+      {turns.map((turn) => (
+        <li key={`${turn.square.row}${turn.square.col}`}>
+          {turn.player === 'X' ? 'Player 1' : 'Player 2'}({turn.player})
+          selected {turn.square.row + ', ' + turn.square.col}
+        </li>
+      ))}
+    </ol>
+  );
 }
